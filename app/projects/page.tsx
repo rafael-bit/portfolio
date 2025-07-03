@@ -137,22 +137,13 @@ export default function ProjectsPage() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                    >
-                      <Github className="w-5 h-5" />
-                      <span>Code</span>
-                    </a>
-                    <a
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors"
                     >
                       <ExternalLink className="w-5 h-5" />
-                      <span>Demo</span>
+                      <span>View</span>
                     </a>
                   </div>
                 </div>
@@ -250,14 +241,16 @@ export default function ProjectsPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-cyan-400 transition-colors"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
+                      {project.featured === false && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-cyan-400 transition-colors"
+                        >
+                          <Github className="w-4 h-4" />
+                        </a>
+                      )}
                       <a
                         href={project.demo}
                         target="_blank"

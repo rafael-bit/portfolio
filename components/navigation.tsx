@@ -13,7 +13,6 @@ const navigation = [
   { name: 'Home', href: '/', icon: User },
   { name: 'About', href: '/about', icon: User },
   { name: 'Projects', href: '/projects', icon: FolderOpen },
-  { name: 'Contact', href: '/contact', icon: MessageCircle },
 ];
 
 export function Navigation() {

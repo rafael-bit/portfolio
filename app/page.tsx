@@ -1,24 +1,48 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { ArrowRight, Github, Linkedin, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 
-const skills = [
-  'Typescript', 'Javascript', 'TypeScript', 'PHP', 'Next.Js', 'React.Js', 'Vue', 'Angular',
-  'Tailwind', 'SEO', 'GraphQL', 'CSS', 'HTML', 'Laravel',
-  'Node.Js', 'Express', 'NestJS', 'Rest API', 'Prisma', 'TypeORM', 'MySQL', 'PostgreSQL', 'Composition Pattern', 'AWS', 'Azure', 'Figma', 'Postman'
-];
+const skillsCategories = {
+  'Frontend': [
+    'JavaScript', 'TypeScript', 'React.js', 'Next.js', 'Vue', 'Angular',
+    'HTML', 'CSS', 'Tailwind', 'Figma'
+  ],
+  'Backend': [
+    'Node.js', 'Express', 'NestJS', 'PHP', 'Laravel', 'REST API',
+    'GraphQL', 'Composition Pattern'
+  ],
+  'Database': [
+    'MySQL', 'PostgreSQL', 'Prisma', 'TypeORM'
+  ],
+  'DevOps & Cloud': [
+    'AWS', 'Azure'
+  ],
+  'Tools': [
+    'Postman', 'SEO', 'Figma'
+  ]
+};
 
-function downloadResume() {
-  const link = document.createElement('a');
-  link.href = '/resume.pdf';
-  link.download = 'resume.pdf';
-  link.click();
-}
+const getCategoryColorClass = (category: string) => {
+  switch (category) {
+    case 'Frontend':
+      return 'from-blue-500 to-cyan-400';
+    case 'Backend':
+      return 'from-purple-500 to-pink-500';
+    case 'Database':
+      return 'from-green-500 to-emerald-400';
+    case 'DevOps & Cloud':
+      return 'from-orange-500 to-amber-400';
+    case 'Tools':
+      return 'from-red-500 to-rose-400';
+    default:
+      return 'from-gray-500 to-slate-400';
+  }
+};
 
 export default function HomePage() {
   return (
@@ -155,13 +179,13 @@ export default function HomePage() {
 
       {/* Skills Section */}
       <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold gradient-text mb-4">
               Technologies I Work With
@@ -171,28 +195,64 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap justify-center gap-3"
-          >
-            {skills.map((skill, index) => (
+          <div className="space-y-16">
+            {Object.entries(skillsCategories).map(([category, skills], categoryIndex) => (
               <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                key={category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                className="relative p-6 border-l-2 border-gradient rounded-r-lg"
+                style={{
+                  borderImageSource: `linear-gradient(to bottom, ${category === 'Frontend' ? '#3b82f6' :
+                    category === 'Backend' ? '#8b5cf6' :
+                      category === 'Database' ? '#10b981' :
+                        category === 'DevOps & Cloud' ? '#f59e0b' :
+                          '#ef4444'}, transparent)`,
+                  borderImageSlice: 1
+                }}
               >
-                <Badge variant="secondary" className="px-4 py-2 text-base backdrop-blur-glass border-white/20 hover:border-cyan-400/50 hover:glow-border transition-all duration-300">
-                  {skill}
-                </Badge>
+                <div className="flex items-center mb-6">
+                  <div className={`h-10 w-10 rounded-full flex items-center justify-center mr-4 bg-gradient-to-r ${getCategoryColorClass(category)}`}>
+                    <span className="text-sm font-bold text-white">0{categoryIndex + 1}</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">
+                    {category}
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-3 ml-14">
+                  {skills.map((skill, index) => (
+                    <motion.div
+                      key={skill}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.4,
+                        delay: (categoryIndex * 0.05) + (index * 0.03),
+                        type: "spring",
+                        stiffness: 100
+                      }}
+                      viewport={{ once: true }}
+                      whileHover={{
+                        y: -3,
+                        boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
+                      }}
+                      className="relative group"
+                    >
+                      <Badge
+                        className={`px-4 py-2 text-base bg-gradient-to-br ${getCategoryColorClass(category)} bg-opacity-10
+                                    border-none shadow-lg hover:shadow-xl transition-all duration-300 font-medium`}
+                      >
+                        {skill}
+                      </Badge>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -219,10 +279,10 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Button onClick={() => downloadResume()} size="lg" variant="outline" className="glow-border px-8 py-3 text-lg">
-              <Download className="mr-2 w-5 h-5" />
-              Download Resume
-            </Button>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 glow-border px-8 py-3 text-lg">
+              <ExternalLink className="mr-2 w-5 h-5" />
+              View Resume
+            </a>
           </div>
         </motion.div>
       </section>
