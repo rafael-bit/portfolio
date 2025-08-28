@@ -68,10 +68,15 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     min-height: 100vh;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
   }
 
   html:not(.dark) body {
@@ -196,6 +201,114 @@
   [role="button"] {
     pointer-events: auto !important;
     cursor: pointer;
+  }
+
+  /* Estilos para o slider de seções */
+  .section-slider {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+  }
+
+  .section-slider>section {
+    scroll-snap-align: start;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Estilos para a bolha de tema */
+  .theme-toggle-bubble {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .theme-toggle-bubble:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(34, 211, 238, 0.5);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+
+  /* Ajustes para light mode */
+  html:not(.dark) .theme-toggle-bubble {
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+
+  html:not(.dark) .theme-toggle-bubble:hover {
+    background: rgba(0, 0, 0, 0.15);
+    border-color: rgba(34, 211, 238, 0.5);
+  }
+
+  /* Animação de pulso sutil */
+  @keyframes subtle-pulse {
+
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+  }
+
+  .theme-toggle-bubble {
+    animation: subtle-pulse 3s ease-in-out infinite;
+  }
+
+  .theme-toggle-bubble:hover {
+    animation: none;
+  }
+
+  /* Indicador de scroll */
+  .scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(34, 211, 238, 0.2);
+    z-index: 9999;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.2s ease;
+  }
+
+  .scroll-indicator.active {
+    transform: scaleX(1);
+  }
+
+  /* Estilos para o tooltip */
+  .theme-tooltip {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Ajustes para light mode no tooltip */
+  html:not(.dark) .theme-tooltip {
+    background: rgba(255, 255, 255, 0.9);
+    color: rgba(0, 0, 0, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Seta do tooltip */
+  .tooltip-arrow {
+    border-top-color: rgba(0, 0, 0, 0.8);
+  }
+
+  html:not(.dark) .tooltip-arrow {
+    border-top-color: rgba(255, 255, 255, 0.9);
   }
 
   /* Garantir que navegação seja clicável */
