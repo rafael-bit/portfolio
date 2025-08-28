@@ -7,8 +7,7 @@ export function useSlider(totalSections: number) {
 	const [isScrolling, setIsScrolling] = useState(false);
 
 	const navigateToSection = useCallback((section: number) => {
-		if (section >= 0 && section < totalSections && !isScrolling) {
-			setIsScrolling(true);
+		if (section >= 0 && section < totalSections) {
 			setCurrentSection(section);
 
 			// Scroll para a seção com posicionamento exato
@@ -16,17 +15,14 @@ export function useSlider(totalSections: number) {
 			if (targetSection) {
 				const targetPosition = targetSection.offsetTop;
 
-				// Scroll instantâneo
+				// Scroll suave como no site do Guilherme Sella
 				window.scrollTo({
 					top: targetPosition,
 					behavior: 'smooth'
 				});
 			}
-
-			// Reset do estado de scrolling após a animação
-			setTimeout(() => setIsScrolling(false), 800);
 		}
-	}, [totalSections, isScrolling]);
+	}, [totalSections]);
 
 	const nextSection = useCallback(() => {
 		navigateToSection(currentSection + 1);
@@ -38,87 +34,94 @@ export function useSlider(totalSections: number) {
 
 	// Função para forçar o scroll para o início da seção atual se necessário
 	const ensureSectionAlignment = useCallback(() => {
-		if (isScrolling) return;
-
 		const currentSectionElement = document.getElementById(`section-${currentSection}`);
 		if (currentSectionElement) {
 			const sectionTop = currentSectionElement.offsetTop;
 			const currentScroll = window.scrollY;
-			const tolerance = 50; // Tolerância fixa de 50px
+			const tolerance = 100; // Tolerância maior para fluidez
 
 			// Se não está alinhado com a seção atual, forçar o alinhamento
 			if (Math.abs(currentScroll - sectionTop) > tolerance) {
-				setIsScrolling(true);
 				window.scrollTo({
 					top: sectionTop,
 					behavior: 'smooth'
 				});
-				setTimeout(() => setIsScrolling(false), 600);
 			}
 		}
-	}, [currentSection, isScrolling]);
+	}, [currentSection]);
 
 	// Detectar mudança de seção baseado no scroll
 	useEffect(() => {
 		const handleScroll = () => {
-			if (isScrolling) return;
-
 			const sections = Array.from({ length: totalSections }, (_, i) =>
 				document.getElementById(`section-${i}`)
 			).filter(Boolean);
 
 			const scrollPosition = window.scrollY;
 			const windowHeight = window.innerHeight;
-			const threshold = windowHeight * 0.4; // 40% da altura da tela
+			const centerPosition = scrollPosition + (windowHeight / 2);
+
+			// Encontrar a seção mais próxima do centro da tela
+			let closestSection = 0;
+			let minDistance = Infinity;
 
 			sections.forEach((section, index) => {
 				if (section) {
 					const sectionTop = section.offsetTop;
-					const sectionBottom = sectionTop + section.offsetHeight;
+					const sectionCenter = sectionTop + (section.offsetHeight / 2);
+					const distance = Math.abs(centerPosition - sectionCenter);
 
-					// Se o scroll está dentro da seção
-					if (scrollPosition >= sectionTop - threshold && scrollPosition < sectionBottom - threshold) {
-						if (currentSection !== index) {
-							setCurrentSection(index);
-						}
+					if (distance < minDistance) {
+						minDistance = distance;
+						closestSection = index;
 					}
 				}
 			});
+
+			if (currentSection !== closestSection) {
+				setCurrentSection(closestSection);
+			}
 		};
 
-		window.addEventListener('scroll', handleScroll, { passive: true });
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, [currentSection, totalSections, isScrolling]);
+		// Throttle suave para performance
+		let ticking = false;
+		const throttledHandleScroll = () => {
+			if (!ticking) {
+				requestAnimationFrame(() => {
+					handleScroll();
+					ticking = false;
+				});
+				ticking = true;
+			}
+		};
 
-	// Verificar alinhamento quando a seção muda
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			ensureSectionAlignment();
-		}, 50);
+		window.addEventListener('scroll', throttledHandleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', throttledHandleScroll);
+	}, [currentSection, totalSections]);
 
-		return () => clearTimeout(timer);
-	}, [currentSection, ensureSectionAlignment]);
+	// Verificar alinhamento quando a seção muda (removido para fluidez)
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 		ensureSectionAlignment();
+	// 	}, 50);
+
+	// 	return () => clearTimeout(timer);
+	// }, [currentSection, ensureSectionAlignment]);
 
 	// Inicializar na primeira seção
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			const firstSection = document.getElementById('section-0');
-			if (firstSection && window.scrollY === 0) {
-				window.scrollTo({
-					top: 0,
-					behavior: 'instant'
-				});
-			}
-		}, 100);
-
-		return () => clearTimeout(timer);
+		const firstSection = document.getElementById('section-0');
+		if (firstSection && window.scrollY === 0) {
+			window.scrollTo({
+				top: 0,
+				behavior: 'instant'
+			});
+		}
 	}, []);
 
 	// Navegação por teclado
 	useEffect(() => {
 		const handleKeyDown = (e: KeyboardEvent) => {
-			if (isScrolling) return;
-
 			switch (e.key) {
 				case 'ArrowDown':
 				case 'PageDown':
@@ -143,14 +146,13 @@ export function useSlider(totalSections: number) {
 
 		window.addEventListener('keydown', handleKeyDown);
 		return () => window.removeEventListener('keydown', handleKeyDown);
-	}, [nextSection, prevSection, navigateToSection, totalSections, isScrolling]);
+	}, [nextSection, prevSection, navigateToSection, totalSections]);
 
 	return {
 		currentSection,
 		navigateToSection,
 		nextSection,
 		prevSection,
-		isScrolling,
 		ensureSectionAlignment
 	};
 }

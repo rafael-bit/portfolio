@@ -178,7 +178,7 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const totalSections = 6; // Home, About, Skills, Experience, Projects, Contact
-  const { currentSection, navigateToSection, nextSection, prevSection, isScrolling } = useSlider(totalSections);
+  const { currentSection, navigateToSection, nextSection, prevSection } = useSlider(totalSections);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -200,9 +200,6 @@ export default function HomePage() {
 
   return (
     <div className="relative section-slider">
-      {/* Indicador de Scroll */}
-      <div className={`scroll-indicator ${isScrolling ? 'active' : ''}`} />
-
       {/* Navegação do Slider */}
       <SliderNavigation
         currentSection={currentSection}
@@ -210,7 +207,6 @@ export default function HomePage() {
         onNavigate={navigateToSection}
         onNext={nextSection}
         onPrev={prevSection}
-        isScrolling={isScrolling}
       />
 
       {/* Seção 1: Home */}

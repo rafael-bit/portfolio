@@ -205,12 +205,10 @@
 
   /* Estilos para o slider de seções */
   .section-slider {
-    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
   }
 
   .section-slider>section {
-    scroll-snap-align: start;
     height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
@@ -269,23 +267,7 @@
     animation: none;
   }
 
-  /* Indicador de scroll */
-  .scroll-indicator {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: rgba(34, 211, 238, 0.2);
-    z-index: 9999;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s ease;
-  }
 
-  .scroll-indicator.active {
-    transform: scaleX(1);
-  }
 
   /* Estilos para o tooltip */
   .theme-tooltip {
