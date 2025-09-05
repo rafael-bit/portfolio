@@ -100,15 +100,15 @@ const contactInfo = [
 const getCategoryColorClass = (category: string) => {
   switch (category) {
     case 'Frontend':
-      return 'from-blue-500 to-cyan-400';
+      return 'from-blue-500 to-blue-400';
     case 'Backend':
-      return 'from-purple-500 to-pink-500';
+      return 'from-slate-500 to-slate-400';
     case 'Database':
-      return 'from-green-500 to-emerald-400';
+      return 'from-gray-500 to-gray-400';
     case 'DevOps & Cloud':
-      return 'from-orange-500 to-amber-400';
+      return 'from-blue-600 to-slate-500';
     case 'Tools':
-      return 'from-red-500 to-rose-400';
+      return 'from-slate-600 to-gray-500';
     default:
       return 'from-gray-500 to-slate-400';
   }
@@ -213,7 +213,7 @@ export default function HomePage() {
         />
 
         <section id="section-0" className="relative md:h-screen flex items-center justify-center px-4 section-content">
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-green-500/10 animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-slate-500/10 to-gray-500/10 animate-pulse" />
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <motion.div
@@ -226,7 +226,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-cyan-400 text-lg md:text-xl font-medium"
+                className="text-blue-400 text-lg md:text-xl font-medium"
               >
                 Hello, I'm
               </motion.p>
@@ -267,7 +267,7 @@ export default function HomePage() {
               >
                 <Button
                   size="lg"
-                  className="glow-button bg-cyan-600 hover:bg-cyan-700 text-white px-8 py-3 text-lg"
+                  className="glow-button bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
                   onClick={() => navigateToSection(3)} // Projects section
                 >
                   View My Work
@@ -277,7 +277,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="glow-border px-8 py-3 text-lg"
+                  className="glow-border px-8 py-3 text-lg hover:opacity-80"
                   onClick={() => navigateToSection(4)} // Contact section
                 >
                   Get In Touch
@@ -296,7 +296,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Rafael Áquila's GitHub Profile"
-                  className="p-3 rounded-full border border-gray-700 hover:border-cyan-400 hover:glow-border transition-all duration-300"
+                  className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
                 >
                   <Github className="w-6 h-6" aria-hidden="true" />
                 </a>
@@ -305,7 +305,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Rafael Áquila's LinkedIn Profile"
-                  className="p-3 rounded-full border border-gray-700 hover:border-cyan-400 hover:glow-border transition-all duration-300"
+                  className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
                 >
                   <Linkedin className="w-6 h-6" aria-hidden="true" />
                 </a>
@@ -314,7 +314,7 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Rafael Áquila's Bento Profile"
-                  className="p-3 rounded-full border border-gray-700 hover:border-cyan-400 hover:glow-border transition-all duration-300"
+                  className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
                 >
                   <Image src="/bento.svg" className="w-6 h-6" width={24} height={24} alt="Bento Profile" />
                 </a>
@@ -327,7 +327,7 @@ export default function HomePage() {
             {[...Array(20)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                className="absolute w-1 h-1 bg-blue-400 rounded-full"
                 animate={{
                   x: [0, Math.random() * 100, 0],
                   y: [0, Math.random() * 100, 0],
@@ -371,7 +371,7 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-cyan-400 mb-3">My story</h2>
+                  <h2 className="text-xl font-bold text-blue-400 mb-3">My story</h2>
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">
                     I've worked across different teams, tools, and layers of development — turning ideas into real, usable products. My journey started with a simple curiosity: how code shapes what we see and interact with.
                   </p>
@@ -437,7 +437,7 @@ export default function HomePage() {
                     viewport={{ once: true }}
                     className="backdrop-blur-glass border border-white/10 rounded-xl p-4 hover:glow-border transition-all duration-300 group"
                   >
-                    <Icon className="w-10 h-10 text-cyan-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
+                    <Icon className="w-10 h-10 text-blue-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
                     <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
                     <p className="text-gray-400 text-sm leading-relaxed">{value.description}</p>
                   </motion.div>
@@ -498,7 +498,7 @@ export default function HomePage() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-gray-400 hover:text-cyan-400 transition-colors"
+                        className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors"
                       >
                         <ExternalLink className="w-5 h-5" />
                         <span>View</span>
@@ -538,7 +538,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="backdrop-blur-glass border border-white/10 rounded-xl p-6"
               >
-                <h2 className="text-xl font-bold text-cyan-400 mb-4">Send a Message</h2>
+                <h2 className="text-xl font-bold text-blue-400 mb-4">Send a Message</h2>
                 <p className="text-gray-400 text-sm mb-4">
                   Fill out the form and click "Open Email" to open your email client with the information you filled in.
                 </p>
@@ -555,7 +555,7 @@ export default function HomePage() {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="backdrop-blur-sm border-white/20 focus:border-cyan-400"
+                        className="backdrop-blur-sm border-white/20 focus:border-blue-400"
                         placeholder="Your full name"
                       />
                     </div>
@@ -570,7 +570,7 @@ export default function HomePage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="backdrop-blur-sm border-white/20 focus:border-cyan-400"
+                        className="backdrop-blur-sm border-white/20 focus:border-blue-400"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -586,7 +586,7 @@ export default function HomePage() {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="backdrop-blur-sm border-white/20 focus:border-cyan-400"
+                      className="backdrop-blur-sm border-white/20 focus:border-blue-400"
                       placeholder="What's this about?"
                     />
                   </div>
@@ -601,14 +601,14 @@ export default function HomePage() {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="backdrop-blur-sm border-white/20 focus:border-cyan-400 resize-none"
+                      className="backdrop-blur-sm border-white/20 focus:border-blue-400 resize-none"
                       placeholder="Tell me more about your project..."
                     />
                   </div>
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full glow-button bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 text-white py-3"
+                    className="w-full glow-button bg-gradient-to-r from-blue-600 to-slate-600 hover:from-blue-700 hover:to-slate-700 text-white py-3"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                     <Send className="ml-2 w-4 h-4" />
@@ -625,7 +625,7 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-cyan-400 mb-4">Contact Information</h2>
+                  <h2 className="text-xl font-bold text-blue-400 mb-4">Contact Information</h2>
                   <div className="space-y-4">
                     {contactInfo.map((info, index) => {
                       const Icon = info.icon;
@@ -641,7 +641,7 @@ export default function HomePage() {
                           viewport={{ once: true }}
                           className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
                         >
-                          <div className="w-10 h-10 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-slate-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
                             <Icon className="w-5 h-5 text-white" />
                           </div>
                           <div>

@@ -26,7 +26,7 @@ export function SliderNavigation({
 				size="sm"
 				onClick={onPrev}
 				disabled={currentSection === 0}
-				className="w-10 h-10 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-cyan-400 transition-all duration-300"
+				className="w-10 h-10 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-blue-400 transition-all duration-300"
 			>
 				<ChevronUp className="w-4 h-4" />
 			</Button>
@@ -38,7 +38,7 @@ export function SliderNavigation({
 						key={index}
 						onClick={() => onNavigate(index)}
 						className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSection === index
-							? 'bg-cyan-400 scale-125'
+							? 'bg-blue-400 scale-125'
 							: 'bg-white/30 hover:bg-white/50'
 							}`}
 					/>
@@ -51,7 +51,7 @@ export function SliderNavigation({
 				size="sm"
 				onClick={onNext}
 				disabled={currentSection === totalSections - 1}
-				className="w-10 h-10 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-cyan-400 transition-all duration-300"
+				className="w-10 h-10 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-blue-400 transition-all duration-300"
 			>
 				<ChevronDown className="w-4 h-4" />
 			</Button>

@@ -6,9 +6,9 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 10, 10, 10;
   --background-end-rgb: 0, 0, 0;
-  --glow-cyan: 0 255 255;
-  --glow-violet: 139 92 246;
-  --glow-green: 34 197 94;
+  --glow-blue: 59 130 246;
+  --glow-slate: 100 116 139;
+  --glow-gray: 75 85 99;
 }
 
 @layer base {
@@ -120,50 +120,46 @@
   }
 }
 
-padding-bottom: 2rem;
-
 @layer components {
 
   /* Backgrounds fluidos para cada seção */
   .section-bg-home {
-    background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.03) 0%, transparent 70%);
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(100, 116, 139, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(75, 85, 99, 0.03) 0%, transparent 70%);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .section-bg-about {
-    background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
+    background: #0a0a0a;
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .section-bg-values {
-    background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.06) 0%, transparent 70%);
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(100, 116, 139, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(75, 85, 99, 0.06) 0%, transparent 70%);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .section-bg-skills {
-    background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.04) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.02) 0%, transparent 70%);
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(100, 116, 139, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(75, 85, 99, 0.02) 0%, transparent 70%);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .section-bg-projects {
-    background: radial-gradient(ellipse at top, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
+    background: radial-gradient(ellipse at top, rgba(100, 116, 139, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(75, 85, 99, 0.04) 0%, transparent 70%);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .section-bg-contact {
-    background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.04) 0%, transparent 70%);
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(100, 116, 139, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(75, 85, 99, 0.04) 0%, transparent 70%);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -221,24 +217,24 @@ padding-bottom: 2rem;
 
   /* Background base com transição suave */
   .section-base-bg {
-    background: radial-gradient(ellipse at top, rgba(6, 182, 212, 0.05) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(147, 51, 234, 0.03) 0%, transparent 50%),
-      radial-gradient(ellipse at center, rgba(34, 197, 94, 0.02) 0%, transparent 70%);
+    background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(100, 116, 139, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at center, rgba(75, 85, 99, 0.02) 0%, transparent 70%);
     transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
 @layer utilities {
   .glow-text {
-    text-shadow: 0 0 20px rgb(var(--glow-cyan) / 0.5),
-      0 0 40px rgb(var(--glow-cyan) / 0.3),
-      0 0 60px rgb(var(--glow-cyan) / 0.1);
+    text-shadow: 0 0 20px rgb(var(--glow-blue) / 0.5),
+      0 0 40px rgb(var(--glow-blue) / 0.3),
+      0 0 60px rgb(var(--glow-blue) / 0.1);
   }
 
   .glow-border {
-    box-shadow: 0 0 20px rgb(var(--glow-cyan) / 0.3),
-      0 0 40px rgb(var(--glow-cyan) / 0.1),
-      inset 0 0 20px rgb(var(--glow-cyan) / 0.05);
+    box-shadow: 0 0 20px rgb(var(--glow-blue) / 0.3),
+      0 0 40px rgb(var(--glow-blue) / 0.1),
+      inset 0 0 20px rgb(var(--glow-blue) / 0.05);
   }
 
   .glow-button {
@@ -265,7 +261,7 @@ padding-bottom: 2rem;
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #00ffff 0%, #8b5cf6 50%, #22c55e 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #64748b 50%, #4b5563 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -304,7 +300,7 @@ padding-bottom: 2rem;
 
   .typewriter {
     overflow: hidden;
-    border-right: 2px solid rgba(0, 255, 255, 0.75);
+    border-right: 2px solid rgba(59, 130, 246, 0.75);
     white-space: nowrap;
     animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
   }
@@ -327,7 +323,7 @@ padding-bottom: 2rem;
     }
 
     50% {
-      border-color: rgba(0, 255, 255, 0.75);
+      border-color: rgba(59, 130, 246, 0.75);
     }
   }
 
@@ -365,8 +361,8 @@ padding-bottom: 2rem;
 
   .theme-toggle-bubble:hover {
     background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(34, 211, 238, 0.5);
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
 
   /* Ajustes para light mode */
@@ -377,7 +373,7 @@ padding-bottom: 2rem;
 
   html:not(.dark) .theme-toggle-bubble:hover {
     background: rgba(0, 0, 0, 0.15);
-    border-color: rgba(34, 211, 238, 0.5);
+    border-color: rgba(59, 130, 246, 0.5);
   }
 
   /* Animação de pulso sutil */
@@ -457,8 +453,8 @@ padding-bottom: 2rem;
   }
 
   /* Ajustes de hover para light mode */
-  html:not(.dark) .hover\:text-cyan-400:hover {
-    color: rgb(34 211 238) !important;
+  html:not(.dark) .hover\:text-blue-400:hover {
+    color: rgb(59 130 246) !important;
   }
 
   html:not(.dark) .hover\:bg-white\/5:hover {
@@ -470,7 +466,7 @@ padding-bottom: 2rem;
     border-color: rgb(229 231 235) !important;
   }
 
-  html:not(.dark) .hover\:border-cyan-400:hover {
-    border-color: rgb(34 211 238) !important;
+  html:not(.dark) .hover\:border-blue-400:hover {
+    border-color: rgb(59 130 246) !important;
   }
 }
