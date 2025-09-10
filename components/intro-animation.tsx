@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const languages = [
-	{ code: 'en', text: 'Hi, this is Rafael\'s portfolio' },
-	{ code: 'pt-BR', text: 'Oi, este é o portfólio do Rafael' },
-	{ code: 'fr', text: 'Salut, voici le portfolio de Rafael' },
+	{ code: 'en', text: 'Hello, Welcome' },
+	{ code: 'pt-BR', text: 'Olá, Bem-vindo' },
+	{ code: 'fr', text: 'Salut, Bienvenue' },
 ];
 
 export default function IntroAnimation() {
@@ -21,9 +21,7 @@ export default function IntroAnimation() {
 					return prev + 1;
 				} else {
 					clearInterval(languageInterval);
-					// Inicia o fade out suave
 					setIsFadingOut(true);
-					// Remove o componente após a animação
 					setTimeout(() => setIsVisible(false), 1000);
 					return prev;
 				}

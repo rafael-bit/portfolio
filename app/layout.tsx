@@ -2,9 +2,10 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import { LanguageProvider } from '@/components/language-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { StructuredData, websiteStructuredData, personStructuredData } from '@/components/structured-data';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { SettingsToggle } from '@/components/settings-toggle';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -101,11 +102,13 @@ export default function RootLayout({
           enableSystem
           storageKey="theme-preference"
         >
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <ThemeToggle />
-          <Toaster />
+          <LanguageProvider>
+            <main className="min-h-screen">
+              {children}
+            </main>
+            <SettingsToggle />
+            <Toaster />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

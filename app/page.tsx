@@ -12,6 +12,7 @@ import { useSlider } from '@/hooks/use-slider';
 import Image from 'next/image';
 import { toast } from 'sonner';
 import IntroAnimation from '@/components/intro-animation';
+import { useLanguage } from '@/components/language-provider';
 
 const projects = [
   {
@@ -46,52 +47,52 @@ const projects = [
   },
 ];
 
-const stats = [
-  { label: 'Lines of Code Written', value: '900K+' },
-  { label: 'Projects Completed', value: '30+' },
-  { label: 'Bugs Fixed', value: '∞' },
-  { label: 'Cups of Coffee', value: '1000+' },
+const getStats = (t: (key: string) => string) => [
+  { label: t('about.stats.lines'), value: '900K+' },
+  { label: t('about.stats.projects'), value: '30+' },
+  { label: t('about.stats.bugs'), value: '∞' },
+  { label: t('about.stats.coffee'), value: '1000+' },
 ];
 
-const values = [
+const getValues = (t: (key: string) => string) => [
   {
     icon: Code,
-    title: 'Code Quality',
-    description: 'I focus on writing clear, consistent, and maintainable code that\'s easy to understand and extend.',
+    title: t('values.codeQuality.title'),
+    description: t('values.codeQuality.description'),
   },
   {
     icon: Palette,
-    title: 'Interface Crafting',
-    description: 'I care about building interfaces that not only look great, but also feel intuitive and polished.',
+    title: t('values.interface.title'),
+    description: t('values.interface.description'),
   },
   {
     icon: Zap,
-    title: 'Fast & Fluid',
-    description: 'I optimize every layer of the application to ensure a smooth, responsive, and reliable experience.',
+    title: t('values.performance.title'),
+    description: t('values.performance.description'),
   },
   {
     icon: Users,
-    title: 'Team Work',
-    description: 'I enjoy working with others — aligning ideas, sharing knowledge, and building products that truly deliver.',
+    title: t('values.teamwork.title'),
+    description: t('values.teamwork.description'),
   },
 ];
 
-const contactInfo = [
+const getContactInfo = (t: (key: string) => string) => [
   {
     icon: Mail,
-    label: 'Email',
+    label: t('contact.email'),
     value: 'raquila743@gmail.com',
     href: 'mailto:raquila743@gmail.com',
   },
   {
     icon: Phone,
-    label: 'Phone',
+    label: t('contact.phone'),
     value: '+55 (77) 99966-0068',
     href: 'tel:+5577999660068',
   },
   {
     icon: MapPin,
-    label: 'Location',
+    label: t('contact.location'),
     value: 'Brumado, BA',
     href: 'https://maps.google.com/maps?q=Brumado,+BA',
   },
@@ -123,6 +124,7 @@ export default function HomePage() {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { t } = useLanguage();
 
   const totalSections = 5; // Home, About, Values, Projects, Contact
   const { currentSection, navigateToSection, nextSection, prevSection } = useSlider(totalSections);
@@ -132,12 +134,12 @@ export default function HomePage() {
     setIsSubmitting(true);
 
     try {
-      const emailSubject = encodeURIComponent(formData.subject || 'Contato do Portfólio');
+      const emailSubject = encodeURIComponent(formData.subject || t('toast.contactSubject'));
       const emailBody = encodeURIComponent(
-        `Nome: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Assunto: ${formData.subject}\n\n` +
-        `Mensagem:\n${formData.message}`
+        `${t('contact.name')}: ${formData.name}\n` +
+        `${t('contact.email')}: ${formData.email}\n` +
+        `${t('contact.subject')}: ${formData.subject}\n\n` +
+        `${t('contact.message')}:\n${formData.message}`
       );
 
       const mailtoLink = `mailto:raquila743@gmail.com?subject=${emailSubject}&body=${emailBody}`;
@@ -157,24 +159,24 @@ export default function HomePage() {
         }
       }
 
-      toast.success('Email aberto! Preencha as informações e envie.');
+      toast.success(t('toast.emailOpened'));
 
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Erro ao abrir email:', error);
 
-      const emailSubject = encodeURIComponent(formData.subject || 'Contato do Portfólio');
+      const emailSubject = encodeURIComponent(formData.subject || t('toast.contactSubject'));
       const emailBody = encodeURIComponent(
-        `Nome: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Assunto: ${formData.subject}\n\n` +
-        `Mensagem:\n${formData.message}`
+        `${t('contact.name')}: ${formData.name}\n` +
+        `${t('contact.email')}: ${formData.email}\n` +
+        `${t('contact.subject')}: ${formData.subject}\n\n` +
+        `${t('contact.message')}:\n${formData.message}`
       );
       const mailtoLink = `mailto:raquila743@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
       toast.error(
         <div>
-          <p>Email não pôde ser aberto automaticamente.</p>
+          <p>{t('toast.emailError')}</p>
           <p className="text-xs mt-1">Link: {mailtoLink}</p>
         </div>,
         { duration: 10000 }
@@ -228,7 +230,7 @@ export default function HomePage() {
                 transition={{ delay: 0.2 }}
                 className="text-blue-400 text-lg md:text-xl font-medium"
               >
-                Hello, I'm
+                {t('home.greeting')}
               </motion.p>
 
               <motion.h1
@@ -237,7 +239,7 @@ export default function HomePage() {
                 transition={{ delay: 0.4 }}
                 className="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6"
               >
-                Rafael Áquila
+                {t('home.title')}
               </motion.h1>
 
               <motion.div
@@ -247,7 +249,7 @@ export default function HomePage() {
                 className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-300 mb-8"
                 role="banner"
               >
-                <span className="typewriter">Full-Stack Developer</span>
+                <span className="typewriter">{t('home.subtitle')}</span>
               </motion.div>
 
               <motion.p
@@ -256,7 +258,7 @@ export default function HomePage() {
                 transition={{ delay: 0.8 }}
                 className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
               >
-                I design and build applications from scratch — shaping interfaces, structuring logic, and making sure everything fits together naturally.
+                {t('home.description')}
               </motion.p>
 
               <motion.div
@@ -270,7 +272,7 @@ export default function HomePage() {
                   className="glow-button bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
                   onClick={() => navigateToSection(3)} // Projects section
                 >
-                  View My Work
+                  {t('home.viewWork')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
 
@@ -280,7 +282,7 @@ export default function HomePage() {
                   className="glow-border px-8 py-3 text-lg hover:opacity-80"
                   onClick={() => navigateToSection(4)} // Contact section
                 >
-                  Get In Touch
+                  {t('home.getInTouch')}
                 </Button>
               </motion.div>
 
@@ -358,7 +360,7 @@ export default function HomePage() {
               className="text-center mb-8"
             >
               <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                About Me
+                {t('about.title')}
               </h1>
             </motion.div>
 
@@ -371,15 +373,15 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-blue-400 mb-3">My story</h2>
+                  <h2 className="text-xl font-bold text-blue-400 mb-3">{t('about.story')}</h2>
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                    I've worked across different teams, tools, and layers of development — turning ideas into real, usable products. My journey started with a simple curiosity: how code shapes what we see and interact with.
+                    {t('about.story1')}
                   </p>
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">
-                    Today, I design and build applications end to end — from crafting user interfaces to writing the logic that powers them.
+                    {t('about.story2')}
                   </p>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Outside of work, I'm usually exploring new technologies, contributing to open-source, or sharing what I learn with others.
+                    {t('about.story3')}
                   </p>
                 </div>
               </motion.div>
@@ -391,7 +393,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="grid grid-cols-2 gap-4"
               >
-                {stats.map((stat, index) => (
+                {getStats(t).map((stat, index) => (
                   <motion.div
                     key={stat.label}
                     initial={{ opacity: 0, y: 20 }}
@@ -419,14 +421,14 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-4xl font-bold gradient-text mb-3">What I Value</h2>
+              <h2 className="text-4xl font-bold gradient-text mb-3">{t('values.title')}</h2>
               <p className="text-gray-400 text-base">
-                The principles that guide my work and approach to development
+                {t('values.subtitle')}
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {values.map((value, index) => {
+              {getValues(t).map((value, index) => {
                 const Icon = value.icon;
                 return (
                   <motion.div
@@ -458,10 +460,10 @@ export default function HomePage() {
               className="text-center mb-8"
             >
               <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                My Projects
+                {t('projects.title')}
               </h1>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                A showcase of my recent work</p>
+                {t('projects.subtitle')}</p>
             </motion.div>
 
             <div className="grid lg:grid-cols-3 gap-6">
@@ -501,7 +503,7 @@ export default function HomePage() {
                         className="flex items-center space-x-2 text-gray-400 hover:text-blue-400 transition-colors"
                       >
                         <ExternalLink className="w-5 h-5" />
-                        <span>View</span>
+                        <span>{t('projects.view')}</span>
                       </a>
                     </div>
                   </div>
@@ -522,10 +524,10 @@ export default function HomePage() {
               className="text-center mb-8"
             >
               <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                Get In Touch
+                {t('contact.title')}
               </h1>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
+                {t('contact.subtitle')}
               </p>
             </motion.div>
 
@@ -538,15 +540,15 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="backdrop-blur-glass border border-white/10 rounded-xl p-6"
               >
-                <h2 className="text-xl font-bold text-blue-400 mb-4">Send a Message</h2>
+                <h2 className="text-xl font-bold text-blue-400 mb-4">{t('contact.sendMessage')}</h2>
                 <p className="text-gray-400 text-sm mb-4">
-                  Fill out the form and click "Open Email" to open your email client with the information you filled in.
+                  {t('contact.formDescription')}
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                        Name
+                        {t('contact.name')}
                       </label>
                       <Input
                         id="name"
@@ -556,12 +558,12 @@ export default function HomePage() {
                         onChange={handleInputChange}
                         required
                         className="backdrop-blur-sm border-white/20 focus:border-blue-400"
-                        placeholder="Your full name"
+                        placeholder={t('contact.namePlaceholder')}
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                        Email
+                        {t('contact.email')}
                       </label>
                       <Input
                         id="email"
@@ -571,13 +573,13 @@ export default function HomePage() {
                         onChange={handleInputChange}
                         required
                         className="backdrop-blur-sm border-white/20 focus:border-blue-400"
-                        placeholder="your@email.com"
+                        placeholder={t('contact.emailPlaceholder')}
                       />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      Subject
+                      {t('contact.subject')}
                     </label>
                     <Input
                       id="subject"
@@ -587,12 +589,12 @@ export default function HomePage() {
                       onChange={handleInputChange}
                       required
                       className="backdrop-blur-sm border-white/20 focus:border-blue-400"
-                      placeholder="What's this about?"
+                      placeholder={t('contact.subjectPlaceholder')}
                     />
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      Message
+                      {t('contact.message')}
                     </label>
                     <Textarea
                       id="message"
@@ -602,7 +604,7 @@ export default function HomePage() {
                       required
                       rows={6}
                       className="backdrop-blur-sm border-white/20 focus:border-blue-400 resize-none"
-                      placeholder="Tell me more about your project..."
+                      placeholder={t('contact.messagePlaceholder')}
                     />
                   </div>
                   <Button
@@ -610,7 +612,7 @@ export default function HomePage() {
                     disabled={isSubmitting}
                     className="w-full glow-button bg-gradient-to-r from-blue-600 to-slate-600 hover:from-blue-700 hover:to-slate-700 text-white py-3"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? t('contact.sending') : t('contact.send')}
                     <Send className="ml-2 w-4 h-4" />
                   </Button>
                 </form>
@@ -625,9 +627,9 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-blue-400 mb-4">Contact Information</h2>
+                  <h2 className="text-xl font-bold text-blue-400 mb-4">{t('contact.info')}</h2>
                   <div className="space-y-4">
-                    {contactInfo.map((info, index) => {
+                    {getContactInfo(t).map((info, index) => {
                       const Icon = info.icon;
                       return (
                         <motion.a
@@ -655,11 +657,9 @@ export default function HomePage() {
                 </div>
 
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-3">Let's Build Something Amazing</h3>
+                  <h3 className="text-lg font-bold text-white mb-3">{t('contact.buildSomething')}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
-                    I'm always excited to work on new projects and collaborate with passionate people.
-                    Whether you have a specific project in mind or just want to chat about technology,
-                    feel free to reach out!
+                    {t('contact.buildDescription')}
                   </p>
                 </div>
               </motion.div>
