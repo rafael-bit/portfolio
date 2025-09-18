@@ -27,6 +27,7 @@ export function SliderNavigation({
 					onClick={onPrev}
 					disabled={currentSection === 0}
 					className="w-10 h-10 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-blue-400 transition-all duration-300"
+					aria-label="Seção anterior"
 				>
 					<ChevronUp className="w-4 h-4" />
 				</Button>
@@ -41,6 +42,7 @@ export function SliderNavigation({
 								? 'bg-blue-400 scale-125'
 								: 'bg-white/30 hover:bg-white/50'
 								}`}
+							aria-label={`Ir para seção ${index + 1}`}
 						/>
 					))}
 				</div>
@@ -52,6 +54,7 @@ export function SliderNavigation({
 					onClick={onNext}
 					disabled={currentSection === totalSections - 1}
 					className="w-10 h-10 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-blue-400 transition-all duration-300"
+					aria-label="Próxima seção"
 				>
 					<ChevronDown className="w-4 h-4" />
 				</Button>
@@ -65,6 +68,7 @@ export function SliderNavigation({
 					onClick={onPrev}
 					disabled={currentSection === 0}
 					className="w-12 h-12 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-blue-400 transition-all duration-300"
+					aria-label="Seção anterior"
 				>
 					<ChevronUp className="w-5 h-5" />
 				</Button>
@@ -79,6 +83,7 @@ export function SliderNavigation({
 								? 'bg-blue-400 scale-125'
 								: 'bg-white/30 hover:bg-white/50'
 								}`}
+							aria-label={`Ir para seção ${index + 1}`}
 						/>
 					))}
 				</div>
@@ -90,6 +95,7 @@ export function SliderNavigation({
 					onClick={onNext}
 					disabled={currentSection === totalSections - 1}
 					className="w-12 h-12 p-0 rounded-full backdrop-blur-glass border border-white/10 hover:border-blue-400 transition-all duration-300"
+					aria-label="Próxima seção"
 				>
 					<ChevronDown className="w-5 h-5" />
 				</Button>

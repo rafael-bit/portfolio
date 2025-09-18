@@ -234,6 +234,8 @@ export default function HomePage() {
                       fill
                       className="object-cover rounded-2xl shadow-2xl border-4 border-blue-500/20"
                       priority
+                      sizes="(max-width: 768px) 320px, (max-width: 1024px) 384px, 448px"
+                      quality={85}
                     />
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-transparent" />
                   </div>
@@ -347,6 +349,8 @@ export default function HomePage() {
                       fill
                       className="object-cover rounded-2xl shadow-2xl border-4 border-blue-500/20"
                       priority
+                      sizes="(max-width: 768px) 320px, (max-width: 1024px) 384px, 448px"
+                      quality={85}
                     />
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-transparent" />
                   </div>
@@ -400,9 +404,9 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
                 {t('about.title')}
-              </h1>
+              </h2>
             </motion.div>
 
             <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -414,7 +418,7 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-blue-400 mb-3">{t('about.story')}</h2>
+                  <h3 className="text-xl font-bold text-blue-400 mb-3">{t('about.story')}</h3>
                   <p className="text-gray-300 text-sm leading-relaxed mb-3">
                     {t('about.story1')}
                   </p>
@@ -481,7 +485,7 @@ export default function HomePage() {
                     className="backdrop-blur-glass border border-white/10 rounded-xl p-4 hover:glow-border transition-all duration-300 group"
                   >
                     <Icon className="w-10 h-10 text-blue-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
-                    <h3 className="text-lg font-semibold text-white mb-2">{value.title}</h3>
+                    <h4 className="text-lg font-semibold text-white mb-2">{value.title}</h4>
                     <p className="text-gray-400 text-sm leading-relaxed">{value.description}</p>
                   </motion.div>
                 );
@@ -500,9 +504,9 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
                 {t('projects.title')}
-              </h1>
+              </h2>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
                 {t('projects.subtitle')}</p>
             </motion.div>
@@ -523,6 +527,9 @@ export default function HomePage() {
                       alt={project.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      quality={80}
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
@@ -564,9 +571,9 @@ export default function HomePage() {
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
                 {t('contact.title')}
-              </h1>
+              </h2>
               <p className="text-lg text-gray-400 max-w-3xl mx-auto">
                 {t('contact.subtitle')}
               </p>
@@ -581,7 +588,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="backdrop-blur-glass border border-white/10 rounded-xl p-6"
               >
-                <h2 className="text-xl font-bold text-blue-400 mb-4">{t('contact.sendMessage')}</h2>
+                <h3 className="text-xl font-bold text-blue-400 mb-4">{t('contact.sendMessage')}</h3>
                 <p className="text-gray-400 text-sm mb-4">
                   {t('contact.formDescription')}
                 </p>
@@ -668,7 +675,7 @@ export default function HomePage() {
                 className="space-y-6"
               >
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h2 className="text-xl font-bold text-blue-400 mb-4">{t('contact.info')}</h2>
+                  <h3 className="text-xl font-bold text-blue-400 mb-4">{t('contact.info')}</h3>
                   <div className="space-y-4">
                     {getContactInfo(t).map((info, index) => {
                       const Icon = info.icon;
@@ -698,7 +705,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h3 className="text-lg font-bold text-white mb-3">{t('contact.buildSomething')}</h3>
+                  <h4 className="text-lg font-bold text-white mb-3">{t('contact.buildSomething')}</h4>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     {t('contact.buildDescription')}
                   </p>
