@@ -28,8 +28,8 @@ const translations = {
 		// Home Section
 		'home.greeting': 'Olá, eu sou',
 		'home.title': 'Rafael Áquila',
-		'home.subtitle': 'Desenvolvedor Full-Stack',
-		'home.description': 'Eu projeto e construo aplicações do zero — moldando interfaces, estruturando lógica e garantindo que tudo se encaixe naturalmente.',
+		'home.subtitle': 'Desenvolvedor de Software',
+		'home.description': 'Desenvolvedor de software. O cara que mexe com programas.',
 		'home.viewWork': 'Ver Meu Trabalho',
 		'home.getInTouch': 'Entre em Contato',
 
@@ -102,8 +102,8 @@ const translations = {
 		// Home Section
 		'home.greeting': 'Hello, I\'m',
 		'home.title': 'Rafael Áquila',
-		'home.subtitle': 'Full-Stack Developer',
-		'home.description': 'I design and build applications from scratch — shaping interfaces, structuring logic, and making sure everything fits together naturally.',
+		'home.subtitle': 'Software Developer',
+		'home.description': 'Software Developer. The guy who messes with programs.',
 		'home.viewWork': 'View My Work',
 		'home.getInTouch': 'Get In Touch',
 

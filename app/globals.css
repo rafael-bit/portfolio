@@ -351,6 +351,30 @@
     position: relative;
   }
 
+  /* Correção para telas pequenas */
+  @media (max-width: 640px) {
+    .section-slider>section {
+      min-height: 100vh;
+      height: auto;
+      max-height: none;
+      padding: 2rem 0;
+    }
+  }
+
+  @media (max-width: 200px) {
+    .section-slider>section {
+      min-height: 100vh;
+      height: auto;
+      max-height: none;
+      padding: 1rem 0;
+      margin-bottom: 1rem;
+    }
+
+    .section-content {
+      padding: 1rem;
+    }
+  }
+
   /* Estilos para a bolha de tema */
   .theme-toggle-bubble {
     backdrop-filter: blur(12px);

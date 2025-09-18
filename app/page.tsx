@@ -214,114 +214,155 @@ export default function HomePage() {
           onPrev={prevSection}
         />
 
-        <section id="section-0" className="relative md:h-screen flex items-center justify-center px-4 section-content">
+        <section id="section-0" className="relative min-h-screen md:h-screen flex items-center justify-center px-4 section-content py-8 md:py-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-slate-500/10 to-gray-500/10 animate-pulse" />
 
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="text-blue-400 text-lg md:text-xl font-medium"
-              >
-                {t('home.greeting')}
-              </motion.p>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold gradient-text mb-6"
-              >
-                {t('home.title')}
-              </motion.h1>
-
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              {/* Image Content - Mobile First */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
-                className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-300 mb-8"
-                role="banner"
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex justify-center lg:hidden order-1"
               >
-                <span className="typewriter">{t('home.subtitle')}</span>
+                <div className="relative">
+                  <div className="w-64 h-64 sm:w-80 sm:h-80 relative">
+                    <Image
+                      src="/rafaelaquila.jpg"
+                      alt="Rafael Áquila - Full-Stack Developer"
+                      fill
+                      className="object-cover rounded-2xl shadow-2xl border-4 border-blue-500/20"
+                      priority
+                    />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-transparent" />
+                  </div>
+                  {/* Floating elements around the image */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-60"
+                  />
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute -bottom-4 -left-4 w-6 h-6 bg-slate-500 rounded-full opacity-60"
+                  />
+                </div>
               </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-                className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
-              >
-                {t('home.description')}
-              </motion.p>
-
+              {/* Text Content */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 }}
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 text-center lg:text-left order-2"
               >
-                <Button
-                  size="lg"
-                  className="glow-button bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg"
-                  onClick={() => navigateToSection(3)} // Projects section
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="text-blue-400 text-lg md:text-xl font-medium"
                 >
-                  {t('home.viewWork')}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
+                  {t('home.greeting')}
+                </motion.p>
 
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="glow-border px-8 py-3 text-lg hover:opacity-80"
-                  onClick={() => navigateToSection(4)} // Contact section
+                <motion.h1
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                  className="text-4xl md:text-6xl lg:text-7xl font-bold gradient-text mb-6"
                 >
-                  {t('home.getInTouch')}
-                </Button>
+                  {t('home.title')}
+                </motion.h1>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="text-xl md:text-3xl lg:text-4xl font-light text-gray-300 mb-8"
+                  role="banner"
+                >
+                  <span className="typewriter">{t('home.subtitle')}</span>
+                </motion.div>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8 }}
+                  className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8"
+                >
+                  {t('home.description')}
+                </motion.p>
+
+                {/* Social Links */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 }}
+                  className="flex items-center justify-center lg:justify-start space-x-6"
+                >
+                  <a
+                    href="https://github.com/rafael-bit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Rafael Áquila's GitHub Profile"
+                    className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
+                  >
+                    <Github className="w-6 h-6" aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/rafael-aquila"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Rafael Áquila's LinkedIn Profile"
+                    className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
+                  >
+                    <Linkedin className="w-6 h-6" aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://bento.me/rafaelaquila"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Rafael Áquila's Bento Profile"
+                    className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
+                  >
+                    <Image src="/bento.svg" className="w-6 h-6" width={24} height={24} alt="Bento Profile" />
+                  </a>
+                </motion.div>
               </motion.div>
 
-              {/* Social Links */}
+              {/* Image Content - Desktop Only */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 }}
-                className="flex items-center justify-center space-x-6 mt-12"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="hidden lg:flex justify-end order-3"
               >
-                <a
-                  href="https://github.com/rafael-bit"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Rafael Áquila's GitHub Profile"
-                  className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
-                >
-                  <Github className="w-6 h-6" aria-hidden="true" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/rafael-aquila"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Rafael Áquila's LinkedIn Profile"
-                  className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
-                >
-                  <Linkedin className="w-6 h-6" aria-hidden="true" />
-                </a>
-                <a
-                  href="https://bento.me/rafaelaquila"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Rafael Áquila's Bento Profile"
-                  className="p-3 rounded-full border border-gray-700 hover:border-blue-400 hover:glow-border transition-all duration-300"
-                >
-                  <Image src="/bento.svg" className="w-6 h-6" width={24} height={24} alt="Bento Profile" />
-                </a>
+                <div className="relative">
+                  <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] relative">
+                    <Image
+                      src="/rafaelaquila.jpg"
+                      alt="Rafael Áquila - Full-Stack Developer"
+                      fill
+                      className="object-cover rounded-2xl shadow-2xl border-4 border-blue-500/20"
+                      priority
+                    />
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-transparent" />
+                  </div>
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    className="absolute -top-4 -right-4 w-8 h-8 bg-blue-500 rounded-full opacity-60"
+                  />
+                  <motion.div
+                    animate={{ rotate: -360 }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                    className="absolute -bottom-4 -left-4 w-6 h-6 bg-slate-500 rounded-full opacity-60"
+                  />
+                </div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Floating particles effect */}
@@ -350,7 +391,7 @@ export default function HomePage() {
         </section>
 
         {/* Seção 2: About */}
-        <section id="section-1" className="md:h-screen flex items-center justify-center px-4 section-content">
+        <section id="section-1" className="min-h-screen md:h-screen flex items-center justify-center px-4 section-content py-8 md:py-0">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -412,7 +453,7 @@ export default function HomePage() {
         </section>
 
         {/* Seção 3: Values */}
-        <section id="section-2" className="md:h-screen flex items-center justify-center px-4 section-content">
+        <section id="section-2" className="min-h-screen md:h-screen flex items-center justify-center px-4 section-content py-8 md:py-0">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -450,7 +491,7 @@ export default function HomePage() {
         </section>
 
         {/* Seção 3: Projects */}
-        <section id="section-3" className="md:h-screen flex items-center justify-center px-4 section-content">
+        <section id="section-3" className="min-h-screen md:h-screen flex items-center justify-center px-4 section-content py-8 md:py-0">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -514,7 +555,7 @@ export default function HomePage() {
         </section>
 
         {/* Seção 4: Contact */}
-        <section id="section-4" className="md:h-screen flex items-center justify-center px-4 section-content">
+        <section id="section-4" className="min-h-screen md:h-screen flex items-center justify-center px-4 section-content py-8 md:py-0">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
