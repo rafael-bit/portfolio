@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 const languages = [
 	{ code: 'en', text: 'Hello, Welcome' },
 	{ code: 'pt-BR', text: 'Olá, Bem-vindo' },
-	{ code: 'fr', text: 'Salut, Bienvenue' },
 ];
 
 export default function IntroAnimation() {
@@ -26,7 +25,7 @@ export default function IntroAnimation() {
 					return prev;
 				}
 			});
-		}, 2000);
+		}, 1300);
 
 		return () => clearInterval(languageInterval);
 	}, []);
