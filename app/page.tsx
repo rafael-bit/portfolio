@@ -159,7 +159,9 @@ export default function HomePage() {
         }
       }
 
-      toast.success(t('toast.emailOpened'));
+      if (typeof window !== 'undefined') {
+        toast.success(t('toast.emailOpened'));
+      }
 
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
@@ -174,13 +176,15 @@ export default function HomePage() {
       );
       const mailtoLink = `mailto:raquila743@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
-      toast.error(
-        <div>
-          <p>{t('toast.emailError')}</p>
-          <p className="text-xs mt-1">Link: {mailtoLink}</p>
-        </div>,
-        { duration: 10000 }
-      );
+      if (typeof window !== 'undefined') {
+        toast.error(
+          <div>
+            <p>{t('toast.emailError')}</p>
+            <p className="text-xs mt-1">Link: {mailtoLink}</p>
+          </div>,
+          { duration: 10000 }
+        );
+      }
     } finally {
       setIsSubmitting(false);
     }
