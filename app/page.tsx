@@ -2,17 +2,14 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, ExternalLink, Mail, Phone, MapPin, Send, Code, Palette, Zap, Users } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight, Github, Linkedin, ExternalLink, Code, Palette, Zap, Users } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { SliderNavigation } from '@/components/slider-navigation';
 import { useSlider } from '@/hooks/use-slider';
 import Image from 'next/image';
-import { toast } from 'sonner';
 import IntroAnimation from '@/components/intro-animation';
 import { useLanguage } from '@/components/language-provider';
+import { PhotoWall } from '@/components/photo-wall';
 
 const projects = [
   {
@@ -77,26 +74,17 @@ const getValues = (t: (key: string) => string) => [
   },
 ];
 
-const getContactInfo = (t: (key: string) => string) => [
-  {
-    icon: Mail,
-    label: t('contact.email'),
-    value: 'raquila743@gmail.com',
-    href: 'mailto:raquila743@gmail.com',
-  },
-  {
-    icon: Phone,
-    label: t('contact.phone'),
-    value: '+55 (77) 99966-0068',
-    href: 'tel:+5577999660068',
-  },
-  {
-    icon: MapPin,
-    label: t('contact.location'),
-    value: 'Brumado, BA',
-    href: 'https://maps.google.com/maps?q=Brumado,+BA',
-  },
-];
+// Galeria: loop para imagens profile1, profile2, ... em public/
+// Aumente PROFILE_IMAGE_MAX se adicionar mais imagens (ex.: profile8, profile9)
+const PROFILE_IMAGE_MAX = 20;
+const PROFILE_IMAGE_EXT = 'jpg';
+
+function getProfileImageSources(): { id: number; src: string }[] {
+  return Array.from({ length: PROFILE_IMAGE_MAX }, (_, i) => ({
+    id: i + 1,
+    src: `/profile${i + 1}.${PROFILE_IMAGE_EXT}`,
+  }));
+}
 
 const getCategoryColorClass = (category: string) => {
   switch (category) {
@@ -117,87 +105,15 @@ const getCategoryColorClass = (category: string) => {
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [profileImages] = useState(() => getProfileImageSources());
   const { t } = useLanguage();
 
-  const totalSections = 5; // Home, About, Values, Projects, Contact
+  const totalSections = 5; // Home, About, Values, Projects, PhotoWall
   const { currentSection, navigateToSection, nextSection, prevSection } = useSlider(totalSections);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const emailSubject = encodeURIComponent(formData.subject || t('toast.contactSubject'));
-      const emailBody = encodeURIComponent(
-        `${t('contact.name')}: ${formData.name}\n` +
-        `${t('contact.email')}: ${formData.email}\n` +
-        `${t('contact.subject')}: ${formData.subject}\n\n` +
-        `${t('contact.message')}:\n${formData.message}`
-      );
-
-      const mailtoLink = `mailto:raquila743@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-      try {
-        window.open(mailtoLink);
-      } catch (error) {
-        try {
-          const link = document.createElement('a');
-          link.href = mailtoLink;
-          link.style.display = 'none';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        } catch (error2) {
-          window.location.href = mailtoLink;
-        }
-      }
-
-      if (typeof window !== 'undefined') {
-        toast.success(t('toast.emailOpened'));
-      }
-
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      console.error('Erro ao abrir email:', error);
-
-      const emailSubject = encodeURIComponent(formData.subject || t('toast.contactSubject'));
-      const emailBody = encodeURIComponent(
-        `${t('contact.name')}: ${formData.name}\n` +
-        `${t('contact.email')}: ${formData.email}\n` +
-        `${t('contact.subject')}: ${formData.subject}\n\n` +
-        `${t('contact.message')}:\n${formData.message}`
-      );
-      const mailtoLink = `mailto:raquila743@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-      if (typeof window !== 'undefined') {
-        toast.error(
-          <div>
-            <p>{t('toast.emailError')}</p>
-            <p className="text-xs mt-1">Link: {mailtoLink}</p>
-          </div>,
-          { duration: 10000 }
-        );
-      }
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const filteredProjects = selectedCategory === 'All'
     ? projects
     : projects.filter(project => project.category === selectedCategory);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
 
   return (
     <>
@@ -565,157 +481,25 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Seção 4: Contact */}
-        <section id="section-4" className="min-h-screen md:h-screen flex items-center justify-center px-4 section-content py-8 md:py-0">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-center mb-8"
-            >
-              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-                {t('contact.title')}
-              </h2>
-              <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                {t('contact.subtitle')}
-              </p>
-            </motion.div>
-
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* Contact Form */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="backdrop-blur-glass border border-white/10 rounded-xl p-6"
-              >
-                <h3 className="text-xl font-bold text-blue-400 mb-4">{t('contact.sendMessage')}</h3>
-                <p className="text-gray-400 text-sm mb-4">
-                  {t('contact.formDescription')}
-                </p>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('contact.name')}
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="backdrop-blur-sm border-white/20 focus:border-blue-400"
-                        placeholder={t('contact.namePlaceholder')}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                        {t('contact.email')}
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="backdrop-blur-sm border-white/20 focus:border-blue-400"
-                        placeholder={t('contact.emailPlaceholder')}
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.subject')}
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="backdrop-blur-sm border-white/20 focus:border-blue-400"
-                      placeholder={t('contact.subjectPlaceholder')}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                      {t('contact.message')}
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
-                      className="backdrop-blur-sm border-white/20 focus:border-blue-400 resize-none"
-                      placeholder={t('contact.messagePlaceholder')}
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full glow-button bg-gradient-to-r from-blue-600 to-slate-600 hover:from-blue-700 hover:to-slate-700 text-white py-3"
-                  >
-                    {isSubmitting ? t('contact.sending') : t('contact.send')}
-                    <Send className="ml-2 w-4 h-4" />
-                  </Button>
-                </form>
-              </motion.div>
-
-              {/* Contact Info */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-blue-400 mb-4">{t('contact.info')}</h3>
-                  <div className="space-y-4">
-                    {getContactInfo(t).map((info, index) => {
-                      const Icon = info.icon;
-                      return (
-                        <motion.a
-                          key={info.label}
-                          href={info.href}
-                          target={info.href.startsWith('http') ? '_blank' : undefined}
-                          rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                          viewport={{ once: true }}
-                          className="flex items-center space-x-3 p-3 rounded-lg hover:bg-white/5 transition-colors group"
-                        >
-                          <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-slate-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                            <Icon className="w-5 h-5 text-white" />
-                          </div>
-                          <div>
-                            <p className="text-gray-400 text-sm">{info.label}</p>
-                            <p className="text-white font-medium">{info.value}</p>
-                          </div>
-                        </motion.a>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div className="backdrop-blur-glass border border-white/10 rounded-xl p-6">
-                  <h4 className="text-lg font-bold text-white mb-3">{t('contact.buildSomething')}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    {t('contact.buildDescription')}
-                  </p>
-                </div>
-              </motion.div>
-            </div>
+        {/* Seção 4: Photo Wall */}
+        <section id="section-4" className="min-h-screen md:h-screen flex flex-col items-center justify-center px-4 section-content py-8 md:py-0 relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="absolute top-8 left-0 right-0 z-10 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+              {t('photoWall.title')}
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              {t('photoWall.subtitle')}
+            </p>
+          </motion.div>
+          
+          <div className="w-full h-full mt-20">
+            <PhotoWall profileImages={profileImages} />
           </div>
         </section>
       </div>

@@ -86,6 +86,9 @@ const translations = {
 		'toast.emailOpened': 'Email aberto! Preencha as informações e envie.',
 		'toast.emailError': 'Email não pôde ser aberto automaticamente.',
 		'toast.contactSubject': 'Contato do Portfólio',
+
+		'photoWall.title': 'Galeria',
+		'photoWall.subtitle': 'Fotos Sobre Mim',
 	},
 	en: {
 		// Settings
@@ -160,6 +163,9 @@ const translations = {
 		'toast.emailOpened': 'Email opened! Fill in the information and send.',
 		'toast.emailError': 'Email could not be opened automatically.',
 		'toast.contactSubject': 'Portfolio Contact',
+
+		'photoWall.title': 'Gallery',
+		'photoWall.subtitle': 'Professional and personal moments from my journey as a developer',
 	},
 };
 
