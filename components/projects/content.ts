@@ -67,7 +67,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'craftly',
     title: 'Craftly',
     image: '/projects/craftly.png',
-    github: 'https://github.com/orafaelaquila/craftly',
+    github: 'https://github.com/rafael-bit/craftly',
     description:
       'Craftly é um site com componentes prontos, ferramentas de cores e ícones personalizáveis para desenvolvedores e designers.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -81,7 +81,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'cloud',
     title: 'CloudSpace',
     image: '/projects/cloud.png',
-    github: 'https://github.com/orafaelaquila/storage-management',
+    github: 'https://github.com/rafael-bit/storage-management',
     description:
       'CloudSpace é uma aplicação de gestão de mídia com recursos como gestão de armazenamento. Desenvolvido com Next.js, Shadcn UI, Zod e Appwrite.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -99,7 +99,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'imgfill',
     title: 'ImgFill',
     image: '/projects/imgfill.png',
-    github: 'https://github.com/orafaelaquila/ImgFill',
+    github: 'https://github.com/rafael-bit/ImgFill',
     description:
       'ImgFill é uma ferramenta de IA para edição de imagens, com remoção de fundo, redimensionamento, melhoria de resolução e ajustes de cor.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',

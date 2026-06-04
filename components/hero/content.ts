@@ -6,12 +6,12 @@ export const hero = {
     {
       id: 'github',
       label: 'GitHub',
-      href: 'https://github.com/orafaelaquila',
+      href: 'https://github.com/rafael-bit',
     },
     {
       id: 'linkedin',
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/orafaelaquila',
+      href: 'https://linkedin.com/in/rafael-aquila',
     },
     {
       id: 'instagram',
