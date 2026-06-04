@@ -1,0 +1,32 @@
+export const tech = {
+  quote: {
+    lines: [
+      'Não é a linguagem de programação ',
+      'que define o programador,',
+      'mas sim sua lógica.',
+    ],
+    author: 'Davi Ribeiro',
+  },
+  visibleCount: 5,
+  items: [
+    'NODE.JS',
+    'BOOTSTRAP',
+    'TYPESCRIPT',
+    'REACT.JS',
+    'NEXT.JS',
+    'LARAVEL',
+    'PHP',
+    'FULL-STACK',
+    'JAVASCRIPT',
+    'TAILWIND',
+    'DOCKER',
+    'POSTGRES',
+    'MYSQL',
+    'MONGODB',
+    'SQL',
+    'NO-SQL',
+    'API',
+    'REST',
+    'GRAPHQL',
+  ],
+} as const;

@@ -1,0 +1,104 @@
+:root {
+  --bg: var(--ink);
+  --bg-raised: var(--ink-soft);
+  --bg-sunken: var(--ink-deep);
+
+  --text: var(--snow);
+  --text-soft: var(--snow-80);
+  --text-dim: var(--slate);
+  --text-faint: var(--slate-dim);
+
+  --line: var(--snow-12);
+  --line-soft: var(--snow-06);
+  --line-strong: var(--snow-40);
+
+  --hover: var(--snow-06);
+  --active: var(--snow-12);
+
+  --accent: var(--cyan);
+  --online: var(--green);
+  --online-glow: var(--green-glow);
+
+  --pill-bg: rgb(255 255 255 / 0.04);
+  --pill-line: rgb(255 255 255 / 0.08);
+  --pill-on: rgb(255 255 255 / 0.1);
+
+  --topbar-h: 4.5rem;
+  --topbar-pad-y: clamp(1.25rem, 3vh, 2rem);
+  --ring-size: min(92vw, 42rem);
+  --ring-line: rgb(255 255 255 / 0.14);
+  --nav-gap-x: clamp(0.75rem, 7vw, 7.5rem);
+
+  --hero-ring-size: min(90vw, 38rem);
+  --hero-ring-line: rgb(255 255 255 / 0.14);
+  --hero-min-h: max(32rem, calc(100dvh - var(--topbar-h) - var(--topbar-pad-y) * 2 - 2rem));
+
+  --about-photo-w: min(100%, 32rem);
+  --about-photo-h: clamp(16rem, 45vw, 22rem);
+  --about-ring-size: min(72vw, 26rem);
+  --about-ring-line: rgb(255 255 255 / 0.14);
+
+  --tech-ticker-size: min(88vw, 22rem);
+  --tech-ticker-size-mobile: min(72vw, 18rem);
+  /* tempo de cada seção (5 tecnologias): pausa + subida */
+  --tech-slide-duration: 4s;
+
+  --projects-app-w: min(100%, 28rem);
+
+  --projects-card-w: min(26rem, calc(100vw - 2 * var(--pad-x) - 4.5rem));
+  --projects-card-h: 13rem;
+  --projects-card-h-mobile: 22rem;
+  --projects-card-gap: 0;
+  --projects-overlap: clamp(2rem, 7vw, 3.5rem);
+  --projects-scale-active: 0.94;
+  --projects-scale-side: 0.86;
+  --projects-scale-far: 0.82;
+  --projects-side-dim: 0.38;
+  --projects-ring-size: min(72vw, 30rem);
+  --projects-ring-line: rgb(255 255 255 / 0.14);
+
+  --gallery-ring-size: min(78vw, 32rem);
+  --gallery-ring-line: rgb(255 255 255 / 0.14);
+  --gallery-card-ratio: 4 / 3;
+
+  --contact-ring-size: min(85vw, 36rem);
+  --contact-ring-line: rgb(255 255 255 / 0.14);
+
+  --grain-opacity: 0.035;
+  --grain-blend: overlay;
+  --grain-size: 180px;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-pill: 9999px;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --pad-x: clamp(1rem, 5vw, 2rem);
+  --pad-y: clamp(1.5rem, 6vh, 3rem);
+
+  --rail-w: calc(43.5rem + 2 * var(--nav-gap-x));
+
+  --z-grain: 1;
+  --z-main: 10;
+  --z-menu: 60;
+  --z-overlay: 50;
+  --z-modal: 100;
+
+  --bp-desktop: 850px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 150ms;
+  --t-base: 250ms;
+  --t-slow: 400ms;
+
+  /* shadcn */
+  --background: 228 100% 2.4%;
+  --foreground: 0 0% 100%;
+  --muted: 228 50% 8%;
+  --muted-foreground: 215 16% 65%;
+  --border: 0 0% 100% / 0.12;
+  --radius: var(--radius-md);
+}

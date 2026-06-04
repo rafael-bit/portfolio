@@ -1,0 +1,20 @@
+:root {
+  --ink: #00020c;
+  --ink-soft: #010818;
+  --ink-deep: #020f24;
+
+  --snow: #ffffff;
+  --slate: #94a3b8;
+  --slate-dim: #64748b;
+
+  --cyan: #38bdf8;
+  --green: #4ade80;
+  --green-glow: #00ff88;
+
+  --snow-80: rgb(255 255 255 / 0.8);
+  --snow-40: rgb(255 255 255 / 0.4);
+  --snow-12: rgb(255 255 255 / 0.12);
+  --snow-06: rgb(255 255 255 / 0.06);
+
+  --noise-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
