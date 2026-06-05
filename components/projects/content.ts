@@ -39,7 +39,7 @@ export const projects: Project[] = [
     id: 'meu-nascimento',
     title: 'Meu Nascimento',
     description:
-      'Plataforma de listas de presentes para recém-nascidos — família e amigos participam num só lugar.',
+      'Plataforma de listas de presentes para recém-nascidos, aniversários e outros eventos especiais, onde família e amigos podem participar e compartilhar o evento.',
     href: '#',
     image: '/work/meunascimento.png',
   },
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     id: 'nossa-vaquinha',
     title: 'Nossa Vaquinha',
     description:
-      'Campanhas de arrecadação com páginas claras, partilha social e acompanhamento de metas.',
+      'Campanhas de vaquinha para crianças com necessidades específicas, onde família e amigos podem participar e compartilhar o evento.',
     href: '#',
     image: '/work/nossavaquinha.png',
   },
@@ -55,13 +55,20 @@ export const projects: Project[] = [
     id: 'wsouza',
     title: 'W Souza',
     description:
-      'Presença digital com portfólio, serviços e contacto integrados numa experiência fluida.',
+      'Empresa de gestão escolar, com ferramentas de gestão de alunos, professores, turmas e matrículas.',
     href: '#',
     image: '/work/wsouza.png',
   },
+  {
+    id: 'comtrasil',
+    title: 'Comtrasil',
+    description:
+      'Empresa de transporte de cargas, com ferramentas de gestão de rotas e veículos.',
+    href: '#',
+    image: '/work/comtrasil.png',
+  },
 ];
 
-/** Lista detalhada — imagens em public/projects */
 export const showcaseProjects: ShowcaseProject[] = [
   {
     id: 'craftly',
