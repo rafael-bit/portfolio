@@ -901,7 +901,19 @@
   }
 
   .projects__carousel {
-    margin-bottom: clamp(4rem, 10vh, 6rem);
+    margin-bottom: 0;
+  }
+
+  .projects__work {
+    margin-bottom: clamp(4rem, 10vh, 6.5rem);
+  }
+
+  .projects__showcase {
+    padding-top: clamp(1rem, 3vh, 2rem);
+  }
+
+  .projects__showcase .projects__header {
+    margin-bottom: clamp(2rem, 5vh, 3rem);
   }
 
   .projects__stage {
@@ -1301,8 +1313,8 @@
     display: flex;
     flex-direction: column;
     gap: clamp(4rem, 10vh, 7rem);
-    margin-top: clamp(5rem, 15vh, 9rem);
-    padding-top: clamp(1.5rem, 4vh, 2.5rem);
+    margin-top: 0;
+    padding-top: 0;
   }
 
   .projects__item {

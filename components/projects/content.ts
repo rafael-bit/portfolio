@@ -28,6 +28,12 @@ export type Project = {
   image: string;
 };
 
+export const workHeading = {
+  prefix: '.../',
+  label: 'EXPERIENCE',
+  suffix: '/...',
+} as const;
+
 export const projectsHeading = {
   prefix: '.../',
   label: 'PROJECTS',
@@ -39,7 +45,7 @@ export const projects: Project[] = [
     id: 'meu-nascimento',
     title: 'Meu Nascimento',
     description:
-      'Plataforma de listas de presentes para recém-nascidos, aniversários e outros eventos especiais, onde família e amigos podem participar e compartilhar o evento.',
+      'Plataforma de listas de presentes e eventos especiais. +14.000 usuários, +20.000 eventos e atuação em liderança técnica do produto.',
     href: '#',
     image: '/work/meunascimento.png',
   },
@@ -47,15 +53,15 @@ export const projects: Project[] = [
     id: 'nossa-vaquinha',
     title: 'Nossa Vaquinha',
     description:
-      'Campanhas de vaquinha para crianças com necessidades específicas, onde família e amigos podem participar e compartilhar o evento.',
+      'Plataforma de campanhas solidárias para apoiar crianças e famílias, com páginas de arrecadação, metas e compartilhamento social.',
     href: '#',
     image: '/work/nossavaquinha.png',
   },
   {
     id: 'wsouza',
-    title: 'W Souza',
+    title: 'WSouza',
     description:
-      'Empresa de gestão escolar, com ferramentas de gestão de alunos, professores, turmas e matrículas.',
+      'ERP com gestão integrada de processos e operações. Utilizado por mais de 130 municípios.',
     href: '#',
     image: '/work/wsouza.png',
   },
@@ -63,7 +69,7 @@ export const projects: Project[] = [
     id: 'comtrasil',
     title: 'Comtrasil',
     description:
-      'Empresa de transporte de cargas, com ferramentas de gestão de rotas e veículos.',
+      'Desenvolvimento de sistemas para gestão operacional e de monitoramento, incluindo solução de bloqueios para mais de 500 veículos.',
     href: '#',
     image: '/work/comtrasil.png',
   },
