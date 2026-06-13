@@ -432,9 +432,35 @@
     color: var(--text-dim);
   }
 
+  .hero__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: 22rem;
+  }
+
+  .hero__highlight {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: var(--text-soft);
+    letter-spacing: 0.02em;
+  }
+
+  .hero__highlight::before {
+    content: '→ ';
+    color: var(--accent);
+  }
+
   @media (min-width: 850px) {
     .hero__bio {
       font-size: 0.875rem;
+    }
+
+    .hero__highlight {
+      font-size: 0.8125rem;
     }
   }
 

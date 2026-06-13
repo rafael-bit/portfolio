@@ -19,6 +19,13 @@ export function Hero() {
 
           <div className="hero__aside">
             <p className="hero__bio">{hero.bio}</p>
+            <ul className="hero__highlights">
+              {hero.highlights.map((item) => (
+                <li key={item} className="hero__highlight">
+                  {item}
+                </li>
+              ))}
+            </ul>
             <a href={hero.cta.href} className="hero__cta">
               {hero.cta.label}
             </a>

@@ -6,14 +6,14 @@ export const aboutHeading = {
 
 export const about = {
   lead: [
-    'Trabalhei com diferentes equipes, ferramentas e camadas de desenvolvimento — transformando ideias em produtos reais e utilizáveis. Minha jornada começou com uma simples curiosidade: como o código molda o que vemos e com o que interagimos.',
-    'Hoje, projeto e construo aplicações de ponta a ponta — desde a criação de interfaces de usuário até a escrita da lógica que as alimenta.',
+    'Desenvolvedor Full Stack com experiência na construção de sistemas para os segmentos de educação, eventos e logística.',
+    'Ao longo da carreira participei do desenvolvimento de ERP educacional utilizado por mais de 130 municípios, plataformas com mais de 20 mil eventos e sistemas de monitoramento de mais de 500 veículos.',
   ],
   highlight:
-    'Fora do trabalho, geralmente estou explorando novas tecnologias, contribuindo para projetos e compartilhando o que aprendo com outros desenvolvedores.',
+    'Atuo no desenvolvimento de aplicações de ponta a ponta, da interface às regras de negócio, com foco em performance, arquitetura e evolução contínua de produtos digitais.',
   portrait: {
     src: '/about/portrait.jpg',
-    alt: 'Rafael Áquila — desenvolvedor front-end',
+    alt: 'Rafael Áquila — Software Engineer',
     width: 480,
     height: 580,
   },

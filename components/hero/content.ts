@@ -1,6 +1,12 @@
 export const hero = {
   title: ['SOFTWARE', 'ENGINEER'] as const,
-  bio: 'Transformando ideias em soluções digitais escaláveis através de código limpo, arquitetura eficiente e tecnologia moderna.',
+  bio: 'Construindo sistemas, produtos e soluções para o mundo real.',
+  highlights: [
+    'ERP em +130 municípios',
+    'Plataforma com +20 mil eventos',
+    'Controle de +500 veículos',
+    'Criador do Craftly',
+  ] as const,
   cta: { label: 'OPEN TO WORK', href: 'mailto:contato@rafaelaquila.com' },
   socials: [
     {
