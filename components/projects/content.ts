@@ -76,7 +76,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     image: '/projects/craftly.png',
     github: 'https://github.com/rafael-bit/craftly',
     description:
-      'Craftly é um site com componentes prontos, ferramentas de cores e ícones personalizáveis para desenvolvedores e designers.',
+      'Biblioteca digital para acelerar o desenvolvimento de interfaces: componentes prontos para uso, paletas de cores e ícones personalizáveis num só lugar, pensada para quem precisa montar telas com mais rapidez e consistência visual.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
     skills: techSkills([
       { label: 'TypeScript', icon: 'typescript' },
@@ -90,7 +90,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     image: '/projects/cloud.png',
     github: 'https://github.com/rafael-bit/storage-management',
     description:
-      'CloudSpace é uma aplicação de gestão de mídia com recursos como gestão de armazenamento. Desenvolvido com Next.js, Shadcn UI, Zod e Appwrite.',
+      'Plataforma para organizar e gerir ficheiros multimédia num painel centralizado. Permite fazer upload, visualizar, pesquisar e controlar o armazenamento com uma experiência fluida e interface moderna.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
     skills: techSkills([
       { label: 'TypeScript', icon: 'typescript' },
@@ -108,7 +108,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     image: '/projects/imgfill.png',
     github: 'https://github.com/rafael-bit/ImgFill',
     description:
-      'ImgFill é uma ferramenta de IA para edição de imagens, com remoção de fundo, redimensionamento, melhoria de resolução e ajustes de cor.',
+      'Ferramenta de edição de imagens com IA para remover fundos, redimensionar, melhorar resolução e ajustar cores em poucos cliques. Projeto completo com autenticação, gestão de ficheiros e fluxo de pagamento integrado.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
     skills: techSkills([
       { label: 'Next.js', icon: 'nextjs' },
