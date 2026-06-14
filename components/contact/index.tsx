@@ -14,10 +14,6 @@ export function Contact() {
           <div className="contact__main">
             <Availability />
 
-            <h2 id="contact-heading" className="contact__heading">
-              {contact.heading}
-            </h2>
-
             <div className="contact__actions">
               <a
                 href={contact.cv.href}
@@ -49,7 +45,6 @@ export function Contact() {
 
           <footer className="contact__bar">
             <Brand />
-            <p className="contact__copy">{contact.copyright}</p>
           </footer>
         </div>
       </div>

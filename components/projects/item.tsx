@@ -38,7 +38,7 @@ export function ProjectItem({ project }: ProjectItemProps) {
             {project.skills.map((skill) => (
               <li key={skill.label}>
                 <span className="projects__skill" title={skill.label}>
-                  <TechIcon id={skill.icon} size={28} />
+                  <TechIcon id={skill.icon} size={20} />
                 </span>
               </li>
             ))}

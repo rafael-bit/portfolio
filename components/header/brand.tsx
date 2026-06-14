@@ -17,7 +17,7 @@ export function Brand() {
         priority
       />
       <span className="text-sm font-medium tracking-tight text-foreground md:text-base">
-        Rafael Áquila.
+        Rafael Áquila
       </span>
     </Link>
   );

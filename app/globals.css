@@ -215,6 +215,11 @@
     gap: 1.5rem;
     width: min(18rem, calc(100% - var(--pad-x) * 2));
     padding: 1.25rem;
+    border-radius: var(--radius-xl);
+    background: var(--pill-bg);
+    border: 1px solid var(--pill-line);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-0.5rem) scale(0.98);
@@ -1429,8 +1434,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     background: var(--bg-raised);
     border: 1px solid var(--line-soft);
@@ -1439,8 +1444,8 @@
   }
 
   .projects__skill svg {
-    width: 1.75rem;
-    height: 1.75rem;
+    width: 1.25rem;
+    height: 1.25rem;
     flex-shrink: 0;
   }
 

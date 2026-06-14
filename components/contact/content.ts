@@ -1,5 +1,4 @@
 export const contact = {
-  heading: 'Se você chegou até aqui, entre em Contato',
   cv: {
     label: 'Download CV',
     href: '/resume.pdf',
@@ -21,7 +20,6 @@ export const contact = {
       label: 'LinkedIn',
     },
   ],
-  copyright: 'Todos os direitos reservados, 2026.',
 } as const;
 
 export type ContactLinkId = (typeof contact.links)[number]['id'];

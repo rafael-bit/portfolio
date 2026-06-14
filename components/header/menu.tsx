@@ -52,7 +52,7 @@ export function Menu() {
         aria-modal="true"
         aria-label="Menu"
         aria-hidden={!open}
-        className={cn('menu__panel pill', open && 'menu__panel--open')}
+        className={cn('menu__panel', open && 'menu__panel--open')}
       >
         <nav aria-label="Menu mobile">
           <NavLinks layout="column" onNavigate={() => setOpen(false)} />
