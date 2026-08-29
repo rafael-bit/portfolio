@@ -3,8 +3,11 @@ import {
   SiAppwrite,
   SiClerk,
   SiCloudinary,
+  SiExpo,
+  SiFirebase,
   SiNextdotjs,
   SiPrisma,
+  SiReact,
   SiShadcnui,
   SiStripe,
   SiTailwindcss,
@@ -22,7 +25,10 @@ export type TechIconId =
   | 'cloudinary'
   | 'prisma'
   | 'stripe'
-  | 'typescript';
+  | 'typescript'
+  | 'expo'
+  | 'react'
+  | 'firebase';
 
 const TECH_ICONS: Record<TechIconId, IconType> = {
   nextjs: SiNextdotjs,
@@ -35,6 +41,9 @@ const TECH_ICONS: Record<TechIconId, IconType> = {
   prisma: SiPrisma,
   stripe: SiStripe,
   typescript: SiTypescript,
+  expo: SiExpo,
+  react: SiReact,
+  firebase: SiFirebase,
 };
 
 type TechIconProps = {

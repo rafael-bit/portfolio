@@ -77,6 +77,21 @@ export const projects: Project[] = [
 
 export const showcaseProjects: ShowcaseProject[] = [
   {
+    id: 'regenereapp',
+    title: 'Regenere App',
+    image: '/projects/regenereapp.png',
+    github: 'https://github.com/rafael-bit/regenereapp',
+    description:
+      'Aplicação móvel da Igreja Batista Regenere para a comunidade acompanhar a vida da igreja: versículo do dia, agenda de cultos e eventos, pregações, pedidos de oração e escalas de voluntários. Inclui painel administrativo, conteúdo por região, notificações e versão web (PWA).',
+    skillsLabel: 'TECNOLOGIAS APLICADAS',
+    skills: techSkills([
+      { label: 'TypeScript', icon: 'typescript' },
+      { label: 'Expo', icon: 'expo' },
+      { label: 'React Native', icon: 'react' },
+      { label: 'Firebase', icon: 'firebase' },
+    ]),
+  },
+  {
     id: 'craftly',
     title: 'Craftly',
     image: '/projects/craftly.png',
@@ -89,6 +104,7 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Next.js', icon: 'nextjs' },
       { label: 'Tailwind CSS', icon: 'tailwind' },
     ]),
+    reverse: true,
   },
   {
     id: 'cloud',
@@ -106,7 +122,6 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Zod', icon: 'zod' },
       { label: 'Appwrite', icon: 'appwrite' },
     ]),
-    reverse: true,
   },
   {
     id: 'imgfill',
@@ -124,5 +139,6 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Tailwind CSS', icon: 'tailwind' },
       { label: 'Stripe', icon: 'stripe' },
     ]),
+    reverse: true,
   },
 ];
