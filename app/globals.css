@@ -894,7 +894,7 @@
 
   .projects__ring {
     position: absolute;
-    top: 18%;
+    top: 13%;
     left: 50%;
     z-index: 0;
     width: var(--projects-ring-size);
