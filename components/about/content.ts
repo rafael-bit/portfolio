@@ -6,7 +6,7 @@ export const aboutHeading = {
 
 export const about = {
   lead: [
-    'Software Engineer com mais de 4 anos de experiência na construção de aplicações web, atuando desde a criação de interfaces até o desenvolvimento de APIs, regras de negócio e bancos de dados. Trabalho principalmente com TypeScript, React, Next.js, Node.js, PHP e Laravel, sempre com foco em performance, arquitetura e qualidade de software.',
+    'Software Engineer com experiência na construção de aplicações web, atuando desde a criação de interfaces até o desenvolvimento de APIs, regras de negócio e bancos de dados. Trabalho principalmente com TypeScript, React, Next.js, Node.js, PHP e Laravel, sempre com foco em performance, arquitetura e qualidade de software.',
     'Ao longo da minha trajetória participei do desenvolvimento de sistemas para os segmentos de educação, eventos e logística. Entre os projetos em que atuei estão um ERP educacional utilizado por mais de 130 municípios, uma plataforma de eventos e listas de presentes com milhares de usuários ativos e sistemas internos voltados para gestão operacional e monitoramento de frotas. Também sou criador do Craftly, plataforma desenvolvida para acelerar a construção de interfaces através de componentes reutilizáveis e ferramentas para desenvolvedores.',
   ],
   highlight:
