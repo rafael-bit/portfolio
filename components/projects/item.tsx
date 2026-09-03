@@ -1,5 +1,5 @@
 import type { ShowcaseProject } from './content';
-import { IconGithub } from './icons';
+import { IconGithub, IconExternalLink } from './icons';
 import { ProjectShowcaseMedia } from './showcase-media';
 import { TechIcon } from './tech-icons';
 
@@ -24,9 +24,9 @@ export function ProjectItem({ project }: ProjectItemProps) {
             className="projects__github"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`GitHub — ${project.title}`}
+            aria-label={project.linkType === 'product' ? `Ver produto — ${project.title}` : `GitHub — ${project.title}`}
           >
-            <IconGithub />
+            {project.linkType === 'product' ? <IconExternalLink /> : <IconGithub />}
           </a>
         </div>
 

@@ -14,6 +14,7 @@ export type ShowcaseProject = {
   title: string;
   image: string;
   github: string;
+  linkType?: 'github' | 'product';
   description: string;
   skillsLabel: string;
   skills: ShowcaseSkill[];
@@ -80,7 +81,8 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'regenereapp',
     title: 'Regenere App',
     image: '/projects/regenereapp.png',
-    github: 'https://github.com/rafael-bit/regenereapp',
+    github: 'https://play.google.com/store/apps/details?id=com.batista.app&hl=pt_BR',
+    linkType: 'product',
     description:
       'Aplicação móvel da Igreja Batista Regenere para a comunidade acompanhar a vida da igreja: versículo do dia, agenda de cultos e eventos, pregações, pedidos de oração e escalas de voluntários. Inclui painel administrativo, conteúdo por região, notificações e versão web (PWA).',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
