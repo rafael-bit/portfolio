@@ -8,10 +8,13 @@ import {
   SiNextdotjs,
   SiPrisma,
   SiReact,
+  SiReactquery,
   SiShadcnui,
   SiStripe,
+  SiSupabase,
   SiTailwindcss,
   SiTypescript,
+  SiVite,
   SiZod,
 } from 'react-icons/si';
 
@@ -28,7 +31,10 @@ export type TechIconId =
   | 'typescript'
   | 'expo'
   | 'react'
-  | 'firebase';
+  | 'firebase'
+  | 'vite'
+  | 'supabase'
+  | 'reactquery';
 
 const TECH_ICONS: Record<TechIconId, IconType> = {
   nextjs: SiNextdotjs,
@@ -44,6 +50,9 @@ const TECH_ICONS: Record<TechIconId, IconType> = {
   expo: SiExpo,
   react: SiReact,
   firebase: SiFirebase,
+  vite: SiVite,
+  supabase: SiSupabase,
+  reactquery: SiReactquery,
 };
 
 type TechIconProps = {

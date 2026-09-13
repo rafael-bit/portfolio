@@ -78,6 +78,23 @@ export const projects: Project[] = [
 
 export const showcaseProjects: ShowcaseProject[] = [
   {
+    id: 'myfinance',
+    title: 'MyFinance',
+    image: '/projects/myfinance.png',
+    github: 'https://github.com/rafael-bit/myfinance',
+    description:
+      'App de finanças pessoais com contabilidade de partidas dobradas, orçamentos por categoria, metas, cartões, investimentos e importação de extratos. Autenticação e dados no Supabase, interface React em PWA com temas claro e escuro.',
+    skillsLabel: 'TECNOLOGIAS APLICADAS',
+    skills: techSkills([
+      { label: 'TypeScript', icon: 'typescript' },
+      { label: 'React', icon: 'react' },
+      { label: 'Vite', icon: 'vite' },
+      { label: 'Tailwind CSS', icon: 'tailwind' },
+      { label: 'Supabase', icon: 'supabase' },
+      { label: 'TanStack Query', icon: 'reactquery' },
+    ]),
+  },
+  {
     id: 'regenereapp',
     title: 'Regenere App',
     image: '/projects/regenereapp.png',
@@ -92,6 +109,7 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'React Native', icon: 'react' },
       { label: 'Firebase', icon: 'firebase' },
     ]),
+    reverse: true,
   },
   {
     id: 'craftly',
@@ -106,7 +124,6 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Next.js', icon: 'nextjs' },
       { label: 'Tailwind CSS', icon: 'tailwind' },
     ]),
-    reverse: true,
   },
   {
     id: 'cloud',
@@ -124,6 +141,7 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Zod', icon: 'zod' },
       { label: 'Appwrite', icon: 'appwrite' },
     ]),
+    reverse: true,
   },
   {
     id: 'imgfill',
@@ -141,6 +159,5 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Tailwind CSS', icon: 'tailwind' },
       { label: 'Stripe', icon: 'stripe' },
     ]),
-    reverse: true,
   },
 ];
