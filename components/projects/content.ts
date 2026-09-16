@@ -81,7 +81,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'myfinance',
     title: 'MyFinance',
     image: '/projects/myfinance.png',
-    github: 'https://github.com/rafael-bit/myfinance',
+    github: 'https://omeufinanceiro.vercel.app/',
     description:
       'App de finanças pessoais com contabilidade de partidas dobradas, orçamentos por categoria, metas, cartões, investimentos e importação de extratos. Autenticação e dados no Supabase, interface React em PWA com temas claro e escuro.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
