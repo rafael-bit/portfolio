@@ -19,15 +19,30 @@ export function ProjectItem({ project }: ProjectItemProps) {
       <div className="projects__copy">
         <div className="projects__title-row">
           <h3 className="projects__item-title">{project.title}</h3>
-          <a
-            href={project.github}
-            className="projects__github"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={project.linkType === 'product' ? `Ver produto — ${project.title}` : `GitHub — ${project.title}`}
-          >
-            {project.linkType === 'product' ? <IconExternalLink /> : <IconGithub />}
-          </a>
+          <div className="projects__links">
+            {project.github ? (
+              <a
+                href={project.github}
+                className="projects__github"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`GitHub — ${project.title}`}
+              >
+                <IconGithub />
+              </a>
+            ) : null}
+            {project.site ? (
+              <a
+                href={project.site}
+                className="projects__github"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver site — ${project.title}`}
+              >
+                <IconExternalLink />
+              </a>
+            ) : null}
+          </div>
         </div>
 
         <p className="projects__item-desc">{project.description}</p>

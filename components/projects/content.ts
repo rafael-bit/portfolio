@@ -13,8 +13,8 @@ export type ShowcaseProject = {
   id: string;
   title: string;
   image: string;
-  github: string;
-  linkType?: 'github' | 'product';
+  github?: string;
+  site?: string;
   description: string;
   skillsLabel: string;
   skills: ShowcaseSkill[];
@@ -81,7 +81,8 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'myfinance',
     title: 'MyFinance',
     image: '/projects/myfinance.png',
-    github: 'https://omeufinanceiro.vercel.app/',
+    github: 'https://github.com/rafael-bit/myfinance',
+    site: 'https://omeufinanceiro.vercel.app/',
     description:
       'App de finanças pessoais com contabilidade de partidas dobradas, orçamentos por categoria, metas, cartões, investimentos e importação de extratos. Autenticação e dados no Supabase, interface React em PWA com temas claro e escuro.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -98,8 +99,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     id: 'regenereapp',
     title: 'Regenere App',
     image: '/projects/regenereapp.png',
-    github: 'https://play.google.com/store/apps/details?id=com.batista.app&hl=pt_BR',
-    linkType: 'product',
+    site: 'https://play.google.com/store/apps/details?id=com.batista.app&hl=pt_BR',
     description:
       'Aplicação móvel da Igreja Batista Regenere para a comunidade acompanhar a vida da igreja: versículo do dia, agenda de cultos e eventos, pregações, pedidos de oração e escalas de voluntários. Inclui painel administrativo, conteúdo por região, notificações e versão web (PWA).',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -116,6 +116,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     title: 'Craftly',
     image: '/projects/craftly.png',
     github: 'https://github.com/rafael-bit/craftly',
+    site: 'https://craftlys.vercel.app',
     description:
       'Biblioteca digital para acelerar o desenvolvimento de interfaces: componentes prontos para uso, paletas de cores e ícones personalizáveis num só lugar, pensada para quem precisa montar telas com mais rapidez e consistência visual.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -130,6 +131,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     title: 'CloudSpace',
     image: '/projects/cloud.png',
     github: 'https://github.com/rafael-bit/storage-management',
+    site: 'https://thecloudspace.vercel.app',
     description:
       'Plataforma para organizar e gerir ficheiros multimédia num painel centralizado. Permite fazer upload, visualizar, pesquisar e controlar o armazenamento com uma experiência fluida e interface moderna.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -148,6 +150,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     title: 'ImgFill',
     image: '/projects/imgfill.png',
     github: 'https://github.com/rafael-bit/ImgFill',
+    site: 'https://imgfill.vercel.app',
     description:
       'Ferramenta de edição de imagens com IA para remover fundos, redimensionar, melhorar resolução e ajustar cores em poucos cliques. Projeto completo com autenticação, gestão de ficheiros e fluxo de pagamento integrado.',
     skillsLabel: 'TECNOLOGIAS APLICADAS',
@@ -159,5 +162,21 @@ export const showcaseProjects: ShowcaseProject[] = [
       { label: 'Tailwind CSS', icon: 'tailwind' },
       { label: 'Stripe', icon: 'stripe' },
     ]),
+  },
+  {
+    id: 'template-portfolio',
+    title: 'Template Portfolio',
+    image: '/projects/template-portfolio.png',
+    github: 'https://github.com/rafael-bit/Template-Portfolio',
+    site: 'https://template-portfolio-inky.vercel.app',
+    description:
+      'Template de portfólio para apresentar projetos e habilidades, com seções prontas para personalizar, animações de scroll e uma base em React e Vite fácil de adaptar ao visual de cada pessoa.',
+    skillsLabel: 'TECNOLOGIAS APLICADAS',
+    skills: techSkills([
+      { label: 'TypeScript', icon: 'typescript' },
+      { label: 'React', icon: 'react' },
+      { label: 'Vite', icon: 'vite' },
+    ]),
+    reverse: true,
   },
 ];

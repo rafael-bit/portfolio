@@ -894,7 +894,7 @@
 
   .projects__ring {
     position: absolute;
-    top: 13%;
+    top: 10%;
     left: 50%;
     z-index: 0;
     width: var(--projects-ring-size);
@@ -940,7 +940,7 @@
   }
 
   .projects__showcase {
-    padding-top: clamp(1rem, 3vh, 2rem);
+    padding-top: clamp(4rem, 5vh, 4rem);
   }
 
   .projects__showcase .projects__header {
@@ -1391,6 +1391,13 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--text-soft);
+  }
+
+  .projects__links {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-shrink: 0;
   }
 
   .projects__github {
